@@ -1,8 +1,31 @@
-# emotion-knowledge-graph
-This paper presents EmoTransKG, an innovative Emotion Knowledge Graph (EKG) that establishes the transformations and connections between emotions across diverse open-textual events.
-Different from existing EKGs that primarily focus on linking emotion keywords (e.g., joyful, sad, and angry) to related terms or assigning sentiment dimension ratings to emotion words by humans, EmoTransKG aims to represent the general knowledge involved in the transformation of emotions.
-Specifically, in conversations, successive emotions expressed by a single speaker are considered the head and tail entities, with open-textual utterances (events) occurring between them representing the relation.
-To analyze whether the emotion knowledge expressed by such relations is justified, we develop EmoTransNet, a transformer-based translational model that interprets each relation as an operation that transforms the subject emotion into the object emotion.
-Notably, our designed EmoTransNet, as a pluggable, seamlessly combine with almost all conversational emotion recognition (CER) models for emotion retrofitting.
-Experimental results from two CER datasets show that incorporating EmoTransNet with baseline models yields significant and consistent improvements, while the visualization of entities and relations clarifies their roles in emotion transformations.
-These experiments confirm the quality and effectiveness of EmoTransKG.
+## Requirements
+
+- Python 3.6.13
+- PyTorch 1.7.1+cu110
+
+
+With Anaconda, we can create the environment with the provided `environment.yml`:
+
+```bash
+conda env create --file environment.yml 
+conda activate MMERC
+```
+
+The code has been tested on Ubuntu 16.04 using a single GPU.
+<br>
+
+## Run Steps
+
+1. Please download the four ERC datasets (including pre-processed discourse graphs and RoBERTa utterance feature) and put them in the data folder. Here we utilize the data and codes from [here](https://github.com/shizhouxing/DialogueDiscourseParsing) to pre-train a conversation discourse parser and use that parser to extract discourse graphs in the four ERC datasets. And we utilize the codes from [here](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC) to extract utterance feature.
+2. Run our model:
+
+```bash
+# For IEMOCAP:
+CUDA_VISIBLE_DEVICES=0 python main.py --dataset IEMOCAP --lr 1e-4 --dropout 0.2 --batch_size 16 --gnn_layers 2
+# For MELD:
+CUDA_VISIBLE_DEVICES=0 python main.py --dataset MELD --lr 1e-4 --dropout 0.3 --batch_size 32 --gnn_layers 2
+# For EmoryNLP:
+CUDA_VISIBLE_DEVICES=0 python main.py --dataset EmoryNLP --lr 1e-4 --dropout 0.1 --batch_size 32 --gnn_layers 2
+# For DailyDialog:
+CUDA_VISIBLE_DEVICES=0 python main.py --dataset DailyDialog --lr 5e-5 --dropout 0.4 --batch_size 64 --gnn_layers 3
+```
