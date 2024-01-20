@@ -6,7 +6,7 @@
 
 
 
-The code has been tested on Ubuntu 20.04 using a single GPU.
+The code has been tested on Ubuntu 20.04 using a single RTX 3090 GPU.
 <br>
 
 ## EmoTransNet: Training EmoTransKG
