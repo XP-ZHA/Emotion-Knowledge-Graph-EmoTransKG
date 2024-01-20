@@ -21,5 +21,5 @@ python EmoTransKG/EKG_Model_Pretrain/EmoTransNet.py --lr 2e-5 --l2 3e-4 --dropou
 ```
 ## EmoTransNet in conversational emotion recognition
 <p align="center">
-  <img src="figure.png" alt="Controlling variables in conversation" width="600"/>
+  <img src="figure.png" alt="Controlling variables in conversation" width="800"/>
 </p>
