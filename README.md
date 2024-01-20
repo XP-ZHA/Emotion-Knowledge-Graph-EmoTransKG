@@ -11,9 +11,8 @@ The code has been tested on Ubuntu 20.04 using a single GPU.
 
 ## EmoTransNet: Training EmoTransKG
 
-1. Please download the two CER datasets and put them in the data folder. Here we utilize the data and codes from to pre-train a conversation discourse parser and use that parser to extract discourse graphs in the four ERC datasets. And we utilize the codes from [here](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC) to extract utterance features.
-2. Run our model:
-
+1. Please download the IEMOCAP and EmoryNLP datasets and put them in the data folder. And we utilize the codes from [here](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC) to extract utterance features.
+2. Run our EmoTransNet model:
 ```bash
-python main.py --dataset IEMOCAP --lr 1e-4 --dropout 0.2 --batch_size 16 --gnn_layers 2
+python EmoTransKG/EKG_Model_Pretrain/EmoTransNet.py --lr 2e-5 --l2 3e-4 --dropout 0.5 --batch_size 64 --BERT_layers 2 --epoches 100
 ```
