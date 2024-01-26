@@ -9,7 +9,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.nn import functional as F
 from dataloader import IEMOCAPRobertaCometDataset
-from model import EmotransNet
+from model import EmoTransNet
 from sklearn.metrics import f1_score, accuracy_score
 
 
@@ -131,7 +131,7 @@ if __name__ == '__main__':
 
     seed_everything(seed)
 
-    model = BERT_main(args, n_classes, dropout)
+    model = EmoTransNet(args, n_classes, dropout)
 
     if cuda:
         model.cuda()
