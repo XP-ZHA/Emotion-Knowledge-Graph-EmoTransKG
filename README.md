@@ -19,7 +19,7 @@ And we utilize the codes from [here](https://github.com/declare-lab/conv-emotion
 ```bash
 python EmoTransKG/EKG_Model_Pretrain/EmoTransNet.py --lr 2e-5 --l2 3e-4 --dropout 0.5 --batch_size 64 --BERT_layers 2 --epoches 100
 ```
-## EmoTransNet in conversational emotion recognition
+## Conversational Emotion Recognition with EmoTransNet
 <p align="center">
   <img src="figure.png" alt="Controlling variables in conversation" width="800"/>
 </p>
