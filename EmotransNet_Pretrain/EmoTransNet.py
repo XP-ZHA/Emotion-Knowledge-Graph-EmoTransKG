@@ -9,7 +9,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.nn import functional as F
 from dataloader import IEMOCAPRobertaCometDataset
-from model import BERT_main
+from model import EmotransNet
 from sklearn.metrics import f1_score, accuracy_score
 
 
