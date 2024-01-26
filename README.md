@@ -20,7 +20,7 @@ python EmoTransNet/EmoTransKG_Construction.py
 And we utilize the codes from [here](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC) to extract utterance or event features.
 2. Run our EmoTransNet model:
 ```bash
-python EmoTransNet/EmoTransNet.py --lr 2e-5 --l2 3e-4 --dropout 0.5 --batch_size 64 --BERT_layers 2 --epoches 100
+python EmoTransNet/EmoTransNet.py --lr 2e-5 --l2 3e-4 --dropout 0.5 --batch_size 64 --transformer_layers 6 --epoches 100
 ```
 ## Conversational Emotion Recognition with EmoTransNet
 <p align="center">
