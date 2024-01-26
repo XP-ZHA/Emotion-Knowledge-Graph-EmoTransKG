@@ -122,7 +122,7 @@ class EncoderLayer(nn.Module):
         return enc_outputs
 
 
-class BERT_main(nn.Module):
+class EmotransNet(nn.Module):
     def __init__(self, args, num_class, dropout):
         super().__init__()
         self.n_layers = args.BERT_layers
@@ -139,11 +139,11 @@ class BERT_main(nn.Module):
         self.fc = nn.Sequential(nn.Linear(self.d_model * 2, self.d_model), nn.Dropout(dropout), nn.Tanh(), )
         self.classifier = nn.Linear(self.d_model, num_class)
 
-        self.fc11 = nn.Linear(num_class, 300)
-        self.fc12 = nn.Linear(300, self.d_model)
+        self.fc_w1 = nn.Linear(num_class, 300)
+        self.fc_w2 = nn.Linear(300, self.d_model)
 
     def forward(self, x, label_1):
-        label_1 = self.fc12(self.fc11(label_1))  # (64, 1024)
+        label_1 = self.fc_w2(self.fc_w1(label_1))  # (64, 1024)
 
         postion = self.pos_emb(x.transpose(0, 1))
         cls_token = self.cls_token + postion[:1, :, :]
