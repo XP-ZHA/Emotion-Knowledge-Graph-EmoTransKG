@@ -125,14 +125,14 @@ class EncoderLayer(nn.Module):
 class EmotransNet(nn.Module):
     def __init__(self, args, num_class, dropout):
         super().__init__()
-        self.n_layers = args.BERT_layers
+        self.n_layers = args.transformer_layers
         self.d_model = 1024
         self.d_k = 64
         self.d_v = 64
         self.d_ff = 2024
         self.n_heads = self.d_model // self.d_k
         self.layers = nn.ModuleList([EncoderLayer(self.d_model, self.d_k, self.d_v, self.n_heads, self.d_ff) for _ in
-                                     range(self.n_layers)])  # 完成了self.n_layers次的多头注意力机制
+                                     range(self.n_layers)])  
         self.cls_token = nn.Parameter(torch.zeros(1, 1, self.d_model))
         self.pos_emb = PositionalEncoding(self.d_model)
 
