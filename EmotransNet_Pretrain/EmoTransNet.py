@@ -106,7 +106,7 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type=int, default=100, metavar='E', help='number of epochs')
     parser.add_argument('--early_stopping_epoch', type=int, default=20)
     parser.add_argument('--seed', type=int, default=1, metavar='seed', help='seed')
-    parser.add_argument('--BERT_layers', type=int, default=6, help='layers of BERT')  # 9层不能收敛
+    parser.add_argument('--transformer_layers', type=int, default=6, help='layers of BERT')  
     args = parser.parse_args()
 
     args.cuda = torch.cuda.is_available()
@@ -184,4 +184,3 @@ if __name__ == '__main__':
 
     all_fscore = sorted(all_fscore, key=lambda x: (x[0], x[1]), reverse=True)
 
-    print('Best F-Score based on validation:{}'.format(all_fscore[0][1]))
