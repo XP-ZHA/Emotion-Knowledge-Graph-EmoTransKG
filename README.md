@@ -9,9 +9,12 @@
 The code has been tested on Ubuntu 20.04 using a single RTX 3090 GPU.
 <br>
 ## Constructing EmoTransKG
-You can download the IEMOCAP and EmoryNLP dataset, extracted utterances we used from: 
+1. You can download the IEMOCAP and EmoryNLP dataset, extracted utterances we used from: 
 [here](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC/feature-extraction)
-
+2. Run:
+```bash
+python EmoTransNet/EmoTransKG_Construction.py
+```
 ## EmoTransNet: Training EmoTransKG
 1. Please download the IEMOCAP and EmoryNLP datasets and put them in the data folder.
 And we utilize the codes from [here](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC) to extract utterance or event features.
